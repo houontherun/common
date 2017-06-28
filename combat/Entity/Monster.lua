@@ -115,7 +115,7 @@ function Monster:Born()
 		self:SetControl(true)
 	end
 	
-	--self:SetState()
+	self:SetState()
 
 	self.summoned = {}
 	-- 技能		
