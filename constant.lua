@@ -707,6 +707,7 @@ return {
     error_talent_not_unlock_yet = 1339,             --天赋尚未解锁
     error_not_select_sect_yet = 1340,               --尚未选择天赋流派
     error_reselect_same_sect = 1341,                --重选天赋不能和之前天赋相同
+    error_stall_is_already_start = 1342,            --已经开始摆摊了
 
     --login错误信息列表
     error_login_server_error = 2000,               --login服务器内部错误
