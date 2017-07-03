@@ -167,6 +167,10 @@ local ConveyType = {
 	ConveyBanner = 3,		--导标旗
 }
 function Hero:_Convey(type, param, callback)
+    if type == ConveyType.ConveyScene and SceneManager.IsOnFightServer() then
+        return
+    end
+    
 	if type ~= ConveyType.ConveyScene and type ~= ConveyType.ConveyRandom and type ~= ConveyType.ConveyBanner then
 		return
 	end
