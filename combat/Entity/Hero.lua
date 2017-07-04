@@ -11,6 +11,7 @@ local SkillManager = require "Common/combat/Skill/SkillManager"
 local common_base_fight = GetConfig("common_fight_base")
 local constant = require "Common/constant"
 local uitext = GetConfig("common_char_chinese").UIText
+local mainSceneTable = GetConfig("common_scene").MainScene
 local CreateHookAttackState = require "Common/combat/State/HookHero/HookAttackState" 
 local CreateHookPatrolState= require "Common/combat/State/HookHero/HookPatrolState"
 local CreateeWildHookState = require "Common/combat/State/HookHero/WildHookState"
@@ -171,9 +172,14 @@ function Hero:_Convey(type, param, callback)
         return
     end
     
+    if type == ConveyType.ConveyScene and (not mainSceneTable[param] or mainSceneTable[param].Party ~= MyHeroManager.heroData.country) then
+		return
+	end
+    
 	if type ~= ConveyType.ConveyScene and type ~= ConveyType.ConveyRandom and type ~= ConveyType.ConveyBanner then
 		return
 	end
+
 	if type == ConveyType.ConveyScene then
 		self.totalTime = commonFightBase.Parameter[46].Value/1000
 	elseif type == ConveyType.ConveyRandom or type == ConveyType.ConveyBanner then
