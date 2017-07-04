@@ -172,7 +172,7 @@ function Hero:_Convey(type, param, callback)
         return
     end
     
-    if type == ConveyType.ConveyScene and (not mainSceneTable[param] or mainSceneTable[param].Party ~= MyHeroManager.heroData.country) then
+    if type == ConveyType.ConveyScene and (not mainSceneTable[param] or mainSceneTable[param]['Location'..MyHeroManager.heroData.country] == 0) then
 		return
 	end
     
